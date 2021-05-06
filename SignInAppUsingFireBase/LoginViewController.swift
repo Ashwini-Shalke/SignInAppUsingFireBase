@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let a = Auth.auth().currentUser {
+      
+        }
+    }
     var emailField: UITextField = {
         var emailField = UITextField()
         emailField.placeholder = "Email"
@@ -115,13 +122,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc func handleRegister(){
-       
         let signUp = SignUpViewController()
         signUp.modalPresentationStyle = .fullScreen
         self.present(signUp, animated: true, completion: nil)
-        
-
     }
-    
 }
 

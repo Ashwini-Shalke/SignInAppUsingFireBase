@@ -97,6 +97,5 @@ class SignUpViewController: UIViewController {
     
     @objc func handleLogin(){
         self.dismiss(animated: true, completion: nil)
-
     }
 }

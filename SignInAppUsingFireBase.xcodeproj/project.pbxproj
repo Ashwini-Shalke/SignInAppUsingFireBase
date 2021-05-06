@@ -15,7 +15,7 @@
 		330B6100264003A500FEE667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330B60FE264003A500FEE667 /* LaunchScreen.storyboard */; };
 		330B6119264038AF00FEE667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 330B6118264038AF00FEE667 /* GoogleService-Info.plist */; };
 		334AD33B2643F04A00F4E1B0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334AD33A2643F04A00F4E1B0 /* SignUpViewController.swift */; };
-		996B0997452EC4806A894406 /* libPods-SignInAppUsingFireBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E714E9F8B58890C43A18EB8 /* libPods-SignInAppUsingFireBase.a */; };
+		637F517D4B560830090CFF49 /* Pods_SignInAppUsingFireBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E28526FC9F255A059A47DD /* Pods_SignInAppUsingFireBase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,8 @@
 		330B6101264003A500FEE667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		330B6118264038AF00FEE667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		334AD33A2643F04A00F4E1B0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		6E714E9F8B58890C43A18EB8 /* libPods-SignInAppUsingFireBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SignInAppUsingFireBase.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81959F0F339AE3F6072F58B3 /* Pods-SignInAppUsingFireBase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignInAppUsingFireBase.release.xcconfig"; path = "Target Support Files/Pods-SignInAppUsingFireBase/Pods-SignInAppUsingFireBase.release.xcconfig"; sourceTree = "<group>"; };
+		C8E28526FC9F255A059A47DD /* Pods_SignInAppUsingFireBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignInAppUsingFireBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				996B0997452EC4806A894406 /* libPods-SignInAppUsingFireBase.a in Frameworks */,
+				637F517D4B560830090CFF49 /* Pods_SignInAppUsingFireBase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +92,7 @@
 		B090AB94B1B86587BA9AEF9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6E714E9F8B58890C43A18EB8 /* libPods-SignInAppUsingFireBase.a */,
+				C8E28526FC9F255A059A47DD /* Pods_SignInAppUsingFireBase.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -108,6 +108,7 @@
 				330B60EC264003A000FEE667 /* Sources */,
 				330B60ED264003A000FEE667 /* Frameworks */,
 				330B60EE264003A000FEE667 /* Resources */,
+				23E60EF8DC6D969FAF8A60EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +166,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		23E60EF8DC6D969FAF8A60EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SignInAppUsingFireBase/Pods-SignInAppUsingFireBase-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SignInAppUsingFireBase/Pods-SignInAppUsingFireBase-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SignInAppUsingFireBase/Pods-SignInAppUsingFireBase-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AF1B0DE7FA2C9F81F712AE0A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
