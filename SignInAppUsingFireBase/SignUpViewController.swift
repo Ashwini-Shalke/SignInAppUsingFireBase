@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        emailField.delegate = self
+        passwordField.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tap)
         setupLayout()
     }
     
@@ -28,6 +34,7 @@ class SignUpViewController: UIViewController {
         passwordField.placeholder = "Password"
         passwordField.tintColor = .blue
         passwordField.borderStyle = .roundedRect
+        passwordField.isSecureTextEntry = true
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         return passwordField
     }()
@@ -93,9 +100,49 @@ class SignUpViewController: UIViewController {
         NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: createAccount.bottomAnchor, constant: 30),
                                      stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      stackView.heightAnchor.constraint(equalToConstant: 30)])
+        
+        createAccount.addTarget(self, action: #selector(didTapCreateAccount), for: .touchUpInside)
     }
     
     @objc func handleLogin(){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func didTapCreateAccount(_ sender: UIButton) {
+          let email = emailField.text
+          let password = passwordField.text
+        Auth.auth().createUser(withEmail: email!, password: password!, completion: { (user, error) in
+              if let error = error {
+                if let errCode = AuthErrorCode(rawValue: error._code) {
+                      switch errCode {
+                      case .invalidEmail:
+                          self.showAlert("Enter a valid email.")
+                      case .emailAlreadyInUse:
+                          self.showAlert("Email already in use.")
+                      default:
+                          self.showAlert("Error: \(error.localizedDescription)")
+                      }
+                  }
+                  return
+              }
+              self.signIn()
+          })
+      }
+
+      func showAlert(_ message: String) {
+        let alertController = UIAlertController(title: "To Do App", message: message, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default,handler: nil))
+          self.present(alertController, animated: true, completion: nil)
+      }
+
+    func signIn() {
+        let homeView = HomeViewController()
+        homeView.modalPresentationStyle = .fullScreen
+        self.present(homeView, animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
